@@ -1,4 +1,4 @@
-PLATFORMS := darwin/386 linux/386 linux/amd64 linux/arm64 linux/arm windows/amd64 darwin/amd64
+PLATFORMS := darwin/386 linux/386 linux/amd64 linux/arm64 linux/arm windows/amd64
 SIGNED_PLATFORMS := darwin/amd64
 
 temp = $(subst /, ,$@)
@@ -16,6 +16,9 @@ build_amd64:
 lint:
 	go fmt ./...
 	golangci-lint run
+
+clean:
+	rm -f markdown2confluence*
 
 release: $(PLATFORMS)
 mac_release: $(SIGNED_PLATFORMS)
